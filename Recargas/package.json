@@ -1,6 +1,7 @@
 {
     "dependencies": {
-        "tns-core-modules": "2.5.1"
+        "tns-core-modules": "2.5.1",
+        "nativescript-oauth": "1.4.0"
     },
     "devDependencies": {
         "nativescript-dev-android-snapshot": "0.0.6"

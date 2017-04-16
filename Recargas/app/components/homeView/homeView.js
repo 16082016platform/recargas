@@ -4,7 +4,7 @@ var isInit = true,
     navigationProperty = require('../../utils/widgets/navigation-property'),
     // additional requires
     viewModel = require('./homeView-view-model');
-
+var tnsOAuthModule = require('nativescript-oauth');
 // additional functions
 function pageLoaded(args) {
     var page = args.object;
@@ -19,9 +19,23 @@ function pageLoaded(args) {
         // additional pageInit
     }
 }
-
-// START_CUSTOM_CODE_homeView
-// Add custom code here. For more information about custom code, see http://docs.telerik.com/platform/screenbuilder/troubleshooting/how-to-keep-custom-code-changes
-
-// END_CUSTOM_CODE_homeView
 exports.pageLoaded = pageLoaded;
+
+exports.tapFacebook = function (args) {
+    tnsOAuthModule.ensureValidToken()
+        .then(function (token) {
+            alert('token: ' + token);
+        })
+        .catch(function (er) {
+            alert(JSON.stringify(er));
+        });
+
+    // tnsOAuthModule.login()
+    //     .then(function () {
+    //         alert("accessToken " + tnsOAuthModule.accessToken());
+    //     })
+    //     .catch(function (er) {
+    //         alert(JSON.stringify(er));
+    //     });
+
+}
